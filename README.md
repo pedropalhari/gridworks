@@ -71,6 +71,58 @@ main {
 
 Eu preferi utilizar dessa forma pois fica separado o bastante assim como visual (na parte do `template-areas`) o bastante manter a manutenção do grid.
 
+## Fazendo overlap
+
+Basicamente, definir um grid, deixar umas colunas a mais com template, e usar só o component do overlap com `grid-row` e `grid-column`
+
+```css
+/* Definir corpo do overlap */
+#overlap-1 {
+  display: grid;
+
+  grid-template-areas:
+    "d d d d"
+    "a a a a"
+    "b b b b"
+    "c c c c";
+
+  grid-template-columns: repeat(4, minmax(0, 50px));
+  grid-template-rows: repeat(4, minmax(0, 50px));
+  border-radius: 20px;
+  overflow: hidden;
+
+  box-shadow: 0 3px 0px rgba(0, 0, 0, 0.16), 0 3px 0px rgba(0, 0, 0, 0.23);
+}
+
+/* filhos com template-area */
+
+#overlap-a {
+  grid-area: a;
+  background-color: red;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+#overlap-b {
+  grid-area: b;
+  background-color: green;
+}
+#overlap-c {
+  grid-area: c;
+  background-color: blue;
+}
+
+/* circulo em cima de x filhos, com margin pra ficar menor que o tamanho da linha */
+#overlap-circle {
+  grid-row: 1 / 3;
+  grid-column: 2 / 4;
+  background-color: grey;
+  opacity: 0.5;
+  border-radius: 100px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin: 15px;
+}
+```
+
 ## Paus & Soluções
 
 ### Padding em grid:
