@@ -163,6 +163,17 @@ main {
 }
 ```
 
+Ou você também pode adicionar o padding dobrado no teu grid (preferencia aqui)
+
+```css
+main {
+  padding: 30px;
+  width: calc(100vw - 60px);
+  height: calc(100vh - 60px);
+  display: grid;
+}
+```
+
 ### Problemas do grid ficando maior que a tela em celulares:
 
 É problema relacionado ao meta no index.html, setar o meta para:
